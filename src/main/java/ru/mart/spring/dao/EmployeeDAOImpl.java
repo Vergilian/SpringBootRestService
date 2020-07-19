@@ -23,31 +23,31 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     public void addEmployee(Employee employee) {
         Session session = this.sessionFactory.getCurrentSession();
         session.persist(employee);
-        logger.info("Employee successful saved. Employee details: "+ employee);
+        logger.info("Employee successful saved. Employee details: " + employee);
     }
 
     @Override
     public void updateEmployee(long id) {
         Session session = this.sessionFactory.getCurrentSession();
         session.update(id);
-        logger.info("Employee successful udpate. Employee details: "+ id);
+        logger.info("Employee successful udpate. Employee details: " + id);
     }
 
     @Override
     public void removeEmployee(long id) {
         Session session = this.sessionFactory.getCurrentSession();
-        Employee employee = (Employee) session.load(Employee.class, new long[(int)id]);
-        if  (employee!=null){
+        Employee employee = (Employee) session.load(Employee.class, new long[(int) id]);
+        if (employee != null) {
             session.delete(employee);
-            logger.info("Employee successful removed. Employee details: "+ employee);
+            logger.info("Employee successful removed. Employee details: " + employee);
         }
     }
 
     @Override
     public Employee getEmployeeId(long id) {
         Session session = this.sessionFactory.getCurrentSession();
-        Employee employee = (Employee) session.load (Employee.class, new long[(int)id]);
-        logger.info("Employee succeseful loaded. Employee details: "+ employee);
+        Employee employee = (Employee) session.load(Employee.class, new long[(int) id]);
+        logger.info("Employee succeseful loaded. Employee details: " + employee);
 
         return employee;
     }
@@ -58,8 +58,8 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         Session session = this.sessionFactory.getCurrentSession();
         List<Employee> employeeList = session.createQuery("from Employee ").list();
 
-        for (Employee employee: employeeList){
-            logger.info("Employee list: "+ employee);
+        for (Employee employee : employeeList) {
+            logger.info("Employee list: " + employee);
         }
         return employeeList;
     }

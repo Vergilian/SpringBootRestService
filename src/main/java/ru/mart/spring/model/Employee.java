@@ -21,8 +21,8 @@ public class Employee {
 
 
     public enum gender {
-        gender1 ("male"),
-        gender2 ("female");
+        gender1("male"),
+        gender2("female");
 
         private String code;
 
@@ -39,7 +39,7 @@ public class Employee {
         public String getCode() {
             return code;
         }
-        }
+    }
 
     public long getId() {
         return id;
